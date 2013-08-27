@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(gottong)
 
-FILE(GLOB SOURCES "${gottong_SOURCE_DIR}/src" *.cc)
+FILE(GLOB SOURCES
+	"${gottong_SOURCE_DIR}/src/*.c"
+	"${gottong_SOURCE_DIR}/src/*.cc")
 
 find_library(SDL_LIB SDL)
 find_library(SDL_IMAGE_LIB SDL_image)
