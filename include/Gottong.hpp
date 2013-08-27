@@ -1,7 +1,7 @@
 #ifndef __GOTTONG_HPP__
 #define __GOTTONG_HPP__
 
-#include "Game.hpp"
+#include "gottong/Game.hpp"
 
 namespace Gottong {
 
