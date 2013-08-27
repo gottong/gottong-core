@@ -3,10 +3,7 @@ project(gottong)
 
 FILE(GLOB SOURCES "${gottong_SOURCE_DIR}/src" *.cc)
 
-find_library(SDL_LIB
-	name SDL libSDL
-	PATH_SUFFIXES
-	lib lib64 lib32)
+find_library(SDL_LIB SDL)
 
 add_library(gottong ${SOURCES})
 
