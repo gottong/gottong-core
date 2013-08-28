@@ -5,8 +5,9 @@
 #include <vector>
 #include <memory>
 
-#include "GameObject.hpp"
 #include "Resource.hpp"
+
+#include "Image.hpp"
 
 namespace Gottong {
 
@@ -16,16 +17,18 @@ class Font;
 class Keyboard;
 class Mouse;
 
+std::shared_ptr<Image> loadImage(const std::string &, const char * = NULL);
+std::shared_ptr<Image> loadImage(const std::vector<char> &, const char * = NULL);
+std::shared_ptr<Sound> loadSound(const std::string &, const char * = NULL);
+std::shared_ptr<Sound> loadSound(const std::vector<char> &, const char * = NULL);
+
+unsigned long getTime();
+unsigned long getDeltaTime();
+
+std::shared_ptr<Keyboard> getKeyboard();
+std::shared_ptr<Mouse> getMouse();
+
 class Game {
-protected:
-	std::shared_ptr<Image> loadImage(const std::string &, const char * = NULL);
-	std::shared_ptr<Image> loadImage(const std::vector<char> &, const char * = NULL);
-	std::shared_ptr<Sound> loadSound(const std::string &, const char * = NULL);
-	std::shared_ptr<Sound> loadSound(const std::vector<char> &, const char * = NULL);
-	unsigned long getTime();
-	unsigned long getDeltaTime();
-	std::shared_ptr<Keyboard> getKeyboard();
-	std::shared_ptr<Mouse> getMouse();
 public:
 	virtual void onCreate() = 0;
 	virtual void onUpdate() = 0;

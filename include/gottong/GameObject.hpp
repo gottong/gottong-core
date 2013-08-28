@@ -1,13 +1,16 @@
 #ifndef __GOTTONG_GAMEOBJECT_HPP__
 #define __GOTTONG_GAMEOBJECT_HPP__
 
+#include <memory>
+
 namespace Gottong {
 
 class GameObject {
 private:
 	std::string name;
+
 public:
-	virtual void instantiate() = 0;
+	virtual void onUpdate() = 0; 
 };
 
 } /* namespace Gottong */

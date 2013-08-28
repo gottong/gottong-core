@@ -9,7 +9,7 @@ namespace Gottong {
 
 class Resource {
 public:
-	std::shared_ptr<GameObject> instantiate() = 0;
+	virtual std::shared_ptr<GameObject> instantiate() = 0;
 };
 
 } /* namespace Gottong */

@@ -6,14 +6,14 @@
 
 namespace Gottong {
 
-unsigned long Game::getTime()
+unsigned long getTime()
 {
 	auto ctx = getGameContext();
 
 	return ctx->getTime();
 }
 
-unsigned long Game::getDeltaTime()
+unsigned long getDeltaTime()
 {
 	auto ctx = getGameContext();
 
