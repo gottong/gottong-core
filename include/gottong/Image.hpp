@@ -12,6 +12,8 @@ public:
 	float w, h;
 	float angle;
 	float alpha;
+
+	rectf rect;
 };
 
 class Image {
