@@ -10,8 +10,6 @@
 
 namespace Gottong {
 
-class GameContext;
-class ResourceManager;
 class Image;
 class Sound;
 class Font;

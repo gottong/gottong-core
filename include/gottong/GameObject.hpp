@@ -6,6 +6,8 @@ namespace Gottong {
 class GameObject {
 private:
 	std::string name;
+public:
+	virtual void instantiate() = 0;
 };
 
 } /* namespace Gottong */
