@@ -10,7 +10,7 @@ private:
 	std::string name;
 
 public:
-	virtual void onUpdate() = 0; 
+	virtual bool onUpdate() = 0; 
 };
 
 } /* namespace Gottong */

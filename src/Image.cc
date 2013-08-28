@@ -100,7 +100,7 @@ void GottongImage::draw(const ImageRenderOpt &opt)
 
 	glTranslatef(opt.dst_rect.x1, opt.dst_rect.y1, 0);
 	glRotatef(opt.angle, 0.0, 0.0, 1.0);
-	glColor4f(1, 1, 1, alpha);
+	glColor4f(1, 1, 1, opt.alpha);
 
 	glBegin(GL_QUADS);
 
