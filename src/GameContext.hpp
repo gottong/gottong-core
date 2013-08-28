@@ -9,11 +9,17 @@ namespace Gottong {
 
 class GameContext {
 private:
+	unsigned long prev_tick;
+	unsigned long cur_tick;
+
 	const std::unique_ptr<Game> game;
 
 public:
 	GameContext(std::unique_ptr<Game>);
 	~GameContext();
+
+	unsigned long getTime();
+	unsigned long getDeltaTime();
 	
 	int run();
 };

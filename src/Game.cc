@@ -10,14 +10,14 @@ unsigned long Game::getTime()
 {
 	auto ctx = getGameContext();
 
-	return 0;
+	return ctx->getTime();
 }
 
 unsigned long Game::getDeltaTime()
 {
 	auto ctx = getGameContext();
 
-	return 0;
+	return ctx->getDeltaTime();
 }
 
 } /* namespace Gottong */
