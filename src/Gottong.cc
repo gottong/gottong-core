@@ -6,7 +6,7 @@
 #include "GameContext.hpp"
 
 extern "C" {
-#include <GL/gl.h>
+#include <SDL_opengl.h>
 }
 
 namespace Gottong {

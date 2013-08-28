@@ -7,6 +7,13 @@
 
 namespace Gottong {
 
+class ImageRenderOpt {
+public:
+	float w, h;
+	float angle;
+	float alpha;
+};
+
 class Image {
 public:
 	const std::string name;
@@ -14,7 +21,7 @@ public:
 public:
 	Image(const std::string &name);
 
-	virtual void draw() = 0;
+	virtual void draw(const ImageRenderOpt &opt) = 0;
 };
 
 } /* namespace Gottong */
