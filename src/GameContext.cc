@@ -3,6 +3,7 @@
 #include "../include/Gottong.hpp"
 
 #include "GameContext.hpp"
+#include "WindowManager.hpp"
 
 namespace Gottong {
 
@@ -25,7 +26,24 @@ int GameContext::run()
 	while (1) {
 		cur_tick = SDL_GetTicks();
 
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		glPushMatrix();
+
+		glMatrixMode(GL_MODELVIEW);
+		glEnable(GL_TEXTURE_2D);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 		game->onUpdate();
+
+		glDisable(GL_BLEND);
+		glDisable(GL_TEXTURE_2D);
+
+		glPopMatrix();
+
+		SDL_GL_SwapWindow(getWindowManager()->getWindow());
 
 		prev_tick = cur_tick;
 	}

@@ -1,9 +1,5 @@
 #include "common.hpp"
 
-extern "C" {
-#include <SDL_opengl.h>
-}
-
 namespace Gottong {
 
 class GottongImage : public Image {

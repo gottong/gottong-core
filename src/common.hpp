@@ -9,7 +9,9 @@ extern "C" {
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
+#include <SDL_opengl.h>
 }
+
 
 #include "../include/Gottong.hpp"
 

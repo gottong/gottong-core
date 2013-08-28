@@ -5,10 +5,6 @@
 #include "WindowManager.hpp"
 #include "GameContext.hpp"
 
-extern "C" {
-#include <SDL_opengl.h>
-}
-
 namespace Gottong {
 
 static std::shared_ptr<WindowManager> wm(nullptr);
