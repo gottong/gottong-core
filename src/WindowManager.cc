@@ -9,5 +9,15 @@ WindowManager::WindowManager(SDL_Window *window)
 {
 }
 
+WindowManager::~WindowManager()
+{
+	SDL_DestroyWindow(window);
+}
+
+SDL_Window *WindowManager::getWindow()
+{
+	return window;
+}
+
 } /* namespace Gottong */
 

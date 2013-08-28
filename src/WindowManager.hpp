@@ -11,9 +11,14 @@ extern "C" {
 namespace Gottong {
 
 class WindowManager {
+private:
+	SDL_Window *window;
+
 public:
-	const SDL_Window *window;
 	WindowManager(SDL_Window *window);
+	~WindowManager();
+
+	SDL_Window *getWindow();
 };
 
 std::shared_ptr<WindowManager> getWindowManager();
