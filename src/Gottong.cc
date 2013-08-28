@@ -3,6 +3,7 @@
 #include "common.hpp"
 
 #include "WindowManager.hpp"
+#include "GameContext.hpp"
 
 extern "C" {
 #include <SDL.h>
@@ -15,7 +16,8 @@ extern "C" {
 
 namespace Gottong {
 
-static std::shared_ptr<WindowManager> wm;
+static std::shared_ptr<WindowManager> wm(nullptr);
+static std::shared_ptr<GameContext> ctx(nullptr);
 
 void Init(const std::string &title, int width, int height, bool is_fullscreen)
 {
@@ -69,12 +71,19 @@ void Init(const std::string &title, int width, int height, bool is_fullscreen)
 
 int Run(std::unique_ptr<Game> game)
 {
-	return 0;
+	ctx = std::make_shared<GameContext>(std::move(game));
+
+	return ctx->run();
 }
 
 std::shared_ptr<WindowManager> getWindowManager()
 {
 	return wm;
+}
+
+std::shared_ptr<GameContext> getGameContext()
+{
+	return ctx;
 }
 
 } /* namespace Gottong */

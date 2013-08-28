@@ -5,6 +5,8 @@
 #include <vector>
 #include <memory>
 
+#include "GameObject.hpp"
+
 namespace Gottong {
 
 class GameContext;
@@ -17,14 +19,12 @@ class Mouse;
 
 class Game {
 protected:
-	std::shared_ptr<ResourceManager> getResources();
-	std::shared_ptr<GameContext> getContext();
 	std::shared_ptr<Image> loadImage(const std::string &, const char * = NULL);
 	std::shared_ptr<Image> loadImage(const std::vector<char> &, const char * = NULL);
 	std::shared_ptr<Sound> loadSound(const std::string &, const char * = NULL);
 	std::shared_ptr<Sound> loadSound(const std::vector<char> &, const char * = NULL);
 	unsigned long getTime();
-	unsigned long getDeltatime();
+	unsigned long getDeltaTime();
 	std::shared_ptr<Keyboard> getKeyboard();
 	std::shared_ptr<Mouse> getMouse();
 public:
