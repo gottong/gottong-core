@@ -12,6 +12,7 @@ private:
 
 public:
 	GottongImage(GLuint gid);
+	~GottongImage();
 
 	void draw(const ImageRenderOpt &opt);
 };
@@ -19,6 +20,11 @@ public:
 GottongImage::GottongImage(GLuint gid)
 	: gid(gid)
 {
+}
+
+GottongImage::~GottongImage()
+{
+	glDeleteTextures(1, &gid);
 }
 
 static std::shared_ptr<Image> loadFromSurface(SDL_Surface *surface)
