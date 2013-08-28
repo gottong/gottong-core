@@ -5,7 +5,7 @@
 
 namespace Gottong {
 
-GottongSprite::GottongSprite(const std::shared_ptr<Image> image)
+GottongSprite::GottongSprite(std::shared_ptr<Image> image)
 	: image(image)
 {
 }

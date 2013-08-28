@@ -5,10 +5,10 @@ namespace Gottong {
 
 class GottongSprite : public Sprite {
 private:
-	const std::shared_ptr<Image> image;
+	std::shared_ptr<Image> image;
 
 public:
-	GottongSprite(const std::shared_ptr<Image> image);
+	GottongSprite(std::shared_ptr<Image> image);
 };
 
 } /* namespace Gottong */
