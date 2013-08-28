@@ -92,5 +92,32 @@ std::shared_ptr<Image> loadImage(const std::vector<char> &data, const char *form
 	return loadImageRW(rw, format);
 }
 
+void GottongImage::draw(const ImageRenderOpt &opt)
+{
+	glBindTexture(GL_TEXTURE_2D, gid);
+
+	glLoadIdentity();
+
+	glTranslatef(opt.dst_rect.x1, opt.dst_rect.y1, 0);
+	glRotatef(opt.angle, 0.0, 0.0, 1.0);
+	glColor4f(1, 1, 1, alpha);
+
+	glBegin(GL_QUADS);
+
+	glTexCoord2f(opt.src_rect.x1, opt.src_rect.y1);
+	glVertex3i(0, 0, 0);
+
+	glTexCoord2f(opt.src_rect.x2, opt.src_rect.y1);
+	glVertex3i(opt.dst_rect.w, 0, 0);
+
+	glTexCoord2f(opt.src_rect.x2, opt.src_rect.y2);
+	glVertex3i(opt.dst_rect.w, opt.dst_rect.h, 0);
+
+	glTexCoord2f(opt.src_rect.x1, opt.src_rect.y2);
+	glVertex3i(0, opt.dst_rect.h, 0);
+
+	glEnd();
+}
+
 } /* namespace Gottong */
 

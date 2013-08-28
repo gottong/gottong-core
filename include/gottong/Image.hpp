@@ -13,7 +13,8 @@ public:
 	float angle;
 	float alpha;
 
-	rectf rect;
+	rectf src_rect;
+	rectf dst_rect;
 };
 
 class Image {
