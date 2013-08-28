@@ -11,17 +11,17 @@ private:
 	const GLuint gid;
 
 public:
-	GottongImage(const std::string &name, GLuint gid);
+	GottongImage(GLuint gid);
 
 	void draw(const ImageRenderOpt &opt);
 };
 
-GottongImage::GottongImage(const std::string &name, GLuint gid)
-	: Image(name), gid(gid)
+GottongImage::GottongImage(GLuint gid)
+	: gid(gid)
 {
 }
 
-std::shared_ptr<Image> loadFromSurface(const std::string &name, SDL_Surface *surface)
+static std::shared_ptr<Image> loadFromSurface(SDL_Surface *surface)
 {
 	GLenum format;
 
@@ -51,23 +51,45 @@ std::shared_ptr<Image> loadFromSurface(const std::string &name, SDL_Surface *sur
 
 	SDL_UnlockSurface(surface);
 
-	return std::make_shared<GottongImage>(name, gid);
+	return std::make_shared<GottongImage>(gid);
 }
 
-std::shared_ptr<Image> loadImage(const std::string &filename, const char *format)
+static std::shared_ptr<Image> loadImageRW(SDL_RWops *rw, const char *format)
 {
-	SDL_Surface *s = IMG_Load(filename.c_str());
-	
-	auto img = loadFromSurface(filename, s);
+	if (!rw) {
+		return nullptr;
+	}
+
+	SDL_Surface *s;
+
+	if (format)
+		s = IMG_LoadTyped_RW(rw, 1, format);
+	else
+		s = IMG_Load_RW(rw, 1);
+
+	if (!s) {
+		return nullptr;
+	}
+
+	auto img = loadFromSurface(s);
 
 	SDL_FreeSurface(s);
 
 	return img;
 }
 
+std::shared_ptr<Image> loadImage(const std::string &filename, const char *format)
+{
+	SDL_RWops *rw = SDL_RWFromFile(filename.c_str(), "rb");
+
+	return loadImageRW(rw, format);
+}
+
 std::shared_ptr<Image> loadImage(const std::vector<char> &data, const char *format)
 {
-	return nullptr;
+	SDL_RWops *rw = SDL_RWFromConstMem(data.data(), data.size());
+
+	return loadImageRW(rw, format);
 }
 
 } /* namespace Gottong */

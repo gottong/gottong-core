@@ -16,11 +16,6 @@ public:
 
 class Image {
 public:
-	const std::string name;
-
-public:
-	Image(const std::string &name);
-
 	virtual void draw(const ImageRenderOpt &opt) = 0;
 };
 
