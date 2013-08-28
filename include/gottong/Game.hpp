@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "GameObject.hpp"
+#include "Resource.hpp"
 
 namespace Gottong {
 
