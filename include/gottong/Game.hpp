@@ -8,11 +8,12 @@
 #include "Resource.hpp"
 
 #include "Image.hpp"
+#include "Sprite.hpp"
+#include "Sound.hpp"
 
 namespace Gottong {
 
 class Image;
-class Sound;
 class Font;
 class Keyboard;
 class Mouse;

@@ -1,12 +1,12 @@
 #ifndef __GOTTONG_SPRITE_HPP__
 #define __GOTTONG_SPRITE_HPP__
 
-#include "Types.h"
-#include "Resource.hpp"
+#include "Types.hpp"
+#include "GameObject.hpp"
 
 namespace Gottong {
 
-class Sprite : public Resource {
+class Sprite {
 public:
 };
 

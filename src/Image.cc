@@ -1,17 +1,8 @@
 #include "common.hpp"
 
+#include "Image.hpp"
+
 namespace Gottong {
-
-class GottongImage : public Image {
-private:
-	const GLuint gid;
-
-public:
-	GottongImage(GLuint gid);
-	~GottongImage();
-
-	void draw(const ImageRenderOpt &opt);
-};
 
 GottongImage::GottongImage(GLuint gid)
 	: gid(gid)
@@ -119,6 +110,10 @@ void GottongImage::draw(const ImageRenderOpt &opt)
 	glVertex3i(0, opt.dst_rect.h, 0);
 
 	glEnd();
+}
+
+std::shared_ptr<GameObject> GottongImage::instantiate()
+{
 }
 
 } /* namespace Gottong */

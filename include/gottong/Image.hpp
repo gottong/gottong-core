@@ -4,6 +4,7 @@
 #include <string>
 
 #include "Types.hpp"
+#include "Resource.hpp"
 
 namespace Gottong {
 
@@ -17,7 +18,7 @@ public:
 	rectf dst_rect;
 };
 
-class Image {
+class Image : public Resource {
 public:
 	virtual void draw(const ImageRenderOpt &opt) = 0;
 };
